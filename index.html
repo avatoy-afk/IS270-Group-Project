@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World</title>
+
+  <!-- Cyber font -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* BASE PAGE */
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: #9268A8;
+      color: #402186;
+      font-family: 'Orbitron', sans-serif;
+      overflow: hidden;
+    }
+
+    /* BACKGROUND GLITTER */
+    .glitter-bg {
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 20px 30px, #ffffffaa, transparent),
+        radial-gradient(1px 1px at 120px 160px, #ffccffaa, transparent),
+        radial-gradient(1px 1px at 200px 80px, #ccccffaa, transparent);
+      animation: bgMove 25s linear infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes bgMove {
+      from { transform: translate(0, 0); }
+      to { transform: translate(-30%, -30%); }
+    }
+
+    /* BAT GIF LAYER */
+    .bats {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .bat-gif {
+      position: absolute;
+      width: 120px;
+      opacity: 0.8;
+      animation: flyBat linear infinite;
+    }
+
+    @keyframes flyBat {
+      from { transform: translateX(-150px); }
+      to { transform: translateX(110vw); }
+    }
+
+    /* CHUNKY GLITTER */
+    .chunky-glitter {
+      position: fixed;
+      inset: -50%;
+      background-image:
+        radial-gradient(6px 6px at 10% 20%, #ffffffcc, transparent 60%),
+        radial-gradient(8px 8px at 30% 70%, #ff99ffcc, transparent 60%),
+        radial-gradient(5px 5px at 50% 40%, #cc66ffcc, transparent 60%),
+        radial-gradient(7px 7px at 80% 60%, #ffffffcc, transparent 60%),
+        radial-gradient(6px 6px at 70% 10%, #ffccffcc, transparent 60%);
+      animation: chunkyFloat 18s linear infinite,
+                 chunkyShimmer 3s ease-in-out infinite alternate;
+      pointer-events: none;
+      z-index: 3;
+      mix-blend-mode: screen;
+    }
+
+    @keyframes chunkyFloat {
+      from { transform: translate(0, 0); }
+      to { transform: translate(25%, 25%); }
+    }
+
+    @keyframes chunkyShimmer {
+      from { opacity: 0.6; }
+      to { opacity: 1; }
+    }
+
+    /* CENTERED CONTENT */
+    .container {
+      position: relative;
+      z-index: 10;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 4rem;
+      color: #ff66ff;
+      text-shadow:
+        0 0 5px #ff99ff,
+        0 0 10px #cc66ff,
+        0 0 20px #9900cc;
+      letter-spacing: 3px;
+      margin-bottom: 30px;
+    }
+
+    /* GLOWING TEXT BOX */
+    .text-box {
+      background-color: black;
+      color: white;
+      width: 300px;
+      padding: 20px;
+      border-radius: 10px;
+      font-family: Geneva, sans-serif;
+      font-size: 22px;
+      text-align: center;
+
+      box-shadow:
+        0 0 10px #cc66ff,
+        0 0 20px #aa66ff,
+        0 0 40px #6600cc;
+
+      animation: boxGlow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes boxGlow {
+      from {
+        box-shadow:
+          0 0 10px #cc66ff,
+          0 0 20px #aa66ff,
+          0 0 40px #6600cc;
+      }
+      to {
+        box-shadow:
+          0 0 20px #ff99ff,
+          0 0 40px #cc66ff,
+          0 0 60px #9900ff;
+      }
+    }
+
+    /* BOTTOM LEFT IMAGE */
+    .corner-doll {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 180px;
+      z-index: 50;
+      filter: drop-shadow(0 0 10px #ff66ff);
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- BACKGROUND LAYERS -->
+  <div class="glitter-bg"></div>
+
+  <div class="bats">
+    <img src="bats.gif" class="bat-gif" style="top:15%; animation-duration:18s;">
+    <img src="bats.gif" class="bat-gif" style="top:35%; animation-duration:24s; width:100px;">
+    <img src="bats.gif" class="bat-gif" style="top:55%; animation-duration:20s; width:140px;">
+    <img src="bats.gif" class="bat-gif" style="top:70%; animation-duration:26s; width:90px;">
+  </div>
+
+  <div class="chunky-glitter"></div>
+
+  <!-- CONTENT -->
+  <div class="container">
+    <h1>Hello World</h1>
+
+    <div class="text-box">
+      Tania<br>
+      Araceli<br>
+      Cyan<br>
+      Ava
+    </div>
+  </div>
+
+  <!-- CORNER CHARACTER -->
+  <img src="tanias-glitter.gif" alt="Glitter character" class="corner-doll">
+
+</body>
+</html>
